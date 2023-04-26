@@ -5,10 +5,10 @@ import (
 )
 
 type StorageI interface {
-	Closedb()
+	CloseDB()
 	Movie() MovieRepoI
 	Actor() ActorRepoI
-	Genres() GenresRepoI
+	Genre() GenresRepoI
 }
 
 type MovieRepoI interface {

@@ -67,3 +67,19 @@ func (s *Store) Movie() storage.MovieRepoI {
 	}
 	return s.movie
 }
+
+func (s *Store) Actor() storage.ActorRepoI {
+	if s.actor == nil {
+		s.actor = NewActorRepo(s.db)
+	}
+
+	return s.actor
+}
+
+func (s *Store) Genre() storage.GenresRepoI {
+	if s.genre == nil {
+		s.genre = NewGenreRepo(s.db)
+	}
+
+	return s.genre
+}
