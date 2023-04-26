@@ -42,7 +42,7 @@ func Load() Config {
 
 	config := Config{}
 
-	config.ServiceName = cast.ToString(getOrReturnDefaultValue("SERVICE_NAME", "golang_psql"))
+	config.ServiceName = cast.ToString(getOrReturnDefaultValue("SERVICE_NAME", "movie"))
 	config.ServiceHost = cast.ToString(getOrReturnDefaultValue("SERVICE_HOST", "localhost"))
 	config.ServicePort = cast.ToString(getOrReturnDefaultValue("SERVICE_PORT", ":8080"))
 
