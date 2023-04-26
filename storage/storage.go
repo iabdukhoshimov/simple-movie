@@ -1,6 +1,7 @@
 package storage
 
 import (
+	"context"
 	"movie/models"
 )
 
@@ -12,7 +13,7 @@ type StorageI interface {
 }
 
 type MovieRepoI interface {
-	Create(req models.CreateMovie) (string, error)
+	Create(ctx context.Context models.CreateMovie) (string, error)
 	Update(id string, req models.UpdateMovie) error
 	Delete(id string) error
 	Get(id string) (models.Movie, error)
