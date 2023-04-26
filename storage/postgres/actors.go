@@ -1,17 +1,11 @@
 package postgres
 
-import (
-	"movie/storage"
+// type actorRepo struct {
+// 	db *pgxpool.Pool
+// }
 
-	"github.com/jackc/pgx/v5/pgxpool"
-)
-
-type actorRepo struct {
-	db *pgxpool.Pool
-}
-
-func NewActorRepo(db *pgxpool.Pool) storage.ActorRepoI {
-	return &actorRepo{
-		db: db,
-	}
-}
+// func NewActorRepo(db *pgxpool.Pool) storage.ActorRepoI {
+// 	return &actorRepo{
+// 		db: db,
+// 	}
+// }

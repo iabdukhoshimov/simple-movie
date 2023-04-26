@@ -19,20 +19,24 @@ func NewMovieRepo(db *pgxpool.Pool) storage.MovieRepoI {
 	}
 }
 
-func (m *movieRepo) Create(ctx context.Context, req models.CreateMovie) (string, error) {
+func (m *movieRepo) Create(ctx context.Context, req models.CreateMovie) (resp string, error error) {
 	query := `insert into movies
-			  (id, title, image_url)
-			  values ($1, $2, $3)`
+			  (title, year, genre, description, image_url, rating)
+			  values ($1, $2, $3, $4, $5, $6)`
 
 	_, err := m.db.Exec(ctx, query,
-		"",
 		req.Title,
-		req.ImageURL)
+		req.Year,
+		req.Genre,
+		req.Description,
+		req.ImageURL,
+		req.Rating,
+	)
 	if err != nil {
-		return "", err
+		return resp, err
 	}
 
-	return "", nil
+	return resp, nil
 }
 
 func (m *movieRepo) Update(id string, req models.UpdateMovie) error {
@@ -43,10 +47,11 @@ func (m *movieRepo) Delete(id string) error {
 	return nil
 }
 
-func (m *movieRepo) Get(id string) (models.Movie, error) {
+func (m *movieRepo) Get(id string) (resp models.Movie, error error) {
 	return models.Movie{}, nil
 }
 
-func (m *movieRepo) GetAll() ([]models.Movie, error) {
+func (m *movieRepo) GetAll() (resp []models.Movie, error error) {
+
 	return []models.Movie{}, nil
 }

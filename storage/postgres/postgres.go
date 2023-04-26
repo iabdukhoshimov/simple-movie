@@ -14,8 +14,8 @@ import (
 type Store struct {
 	db    *pgxpool.Pool
 	movie storage.MovieRepoI
-	actor storage.ActorRepoI
-	genre storage.GenresRepoI
+	// actor storage.ActorRepoI
+	// genre storage.GenresRepoI
 }
 
 func NewPostgres(ctx context.Context, cfg config.Config) (storage.StorageI, error) {
@@ -68,18 +68,18 @@ func (s *Store) Movie() storage.MovieRepoI {
 	return s.movie
 }
 
-func (s *Store) Actor() storage.ActorRepoI {
-	if s.actor == nil {
-		s.actor = NewActorRepo(s.db)
-	}
+// func (s *Store) Actor() storage.ActorRepoI {
+// 	if s.actor == nil {
+// 		s.actor = NewActorRepo(s.db)
+// 	}
 
-	return s.actor
-}
+// 	return s.actor
+// }
 
-func (s *Store) Genre() storage.GenresRepoI {
-	if s.genre == nil {
-		s.genre = NewGenreRepo(s.db)
-	}
+// func (s *Store) Genre() storage.GenresRepoI {
+// 	if s.genre == nil {
+// 		s.genre = NewGenreRepo(s.db)
+// 	}
 
-	return s.genre
-}
+// 	return s.genre
+// }
